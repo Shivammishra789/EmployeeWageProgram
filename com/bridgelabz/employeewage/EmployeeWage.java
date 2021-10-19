@@ -1,78 +1,55 @@
 package com.bridgelabz.employeewage;
-package com.bridgelabz.employeewage;
 
 public class EmployeeWage {
 
-	//Constant variables
-
-	public static final int Is_Full_Time = 1;
-
-	public static final int Is_Part_Time = 2;
-
-	public static final int Wage_Per_Hr = 20;
-
-	public static final int Max_Working_Days = 20;
-
-	public static final int Max_Monthly_Hrs = 100;
-
-
-	public static void main(String[] args) {
-
-		int Emp_Hrs=0;
-
-
-		int Total_Working_Days = 0;
-
+	public static final int IS_FULL_TIME = 1;
+	public static final int IS_PART_TIME = 2;
+	public static final int WAGE_PER_HR = 20;
+	public static final int MAX_WORKING_DAYS = 20;
+	public static final int MAX_MONTHLY_HRS = 100;
+	
+	public static void ComputeEmployeeWage() {
+		//Variables
+		int Emp_Hrs=0; 
+		int Total_Working_Days = 0; 
 		int Total_Working_Hrs = 0;
 
-
-		System.out.println("Day wise working hours");
-
-
-		//Loop used to check till 100 hours or 20 days
-
-
-		while ( Total_Working_Hrs <= Max_Monthly_Hrs &&
-
-				Total_Working_Days < Max_Working_Days ) {
+		while ( Total_Working_Hrs != MAX_MONTHLY_HRS &&
+				Total_Working_Days < MAX_WORKING_DAYS ) {
 
 			Total_Working_Days++;
-
 			double Emp_Check = Math.floor(Math.random() *10 )%3;
 
-			//Switch Case Used
-
+			//Switch expression
 			switch((int) Emp_Check){
 
-			case Is_Full_Time:
+			//Case statements
+			case IS_FULL_TIME:
 				Emp_Hrs=8;
-
 				break;
-
-			case Is_Part_Time:
+				
+			case IS_PART_TIME:
 				Emp_Hrs=4;
-
 				break;
 
+				//Default case statement
 			default:
 				Emp_Hrs=0;
-
 				break;
-
 			}
 
-			//Stores total working hours
-
-			Total_Working_Hrs+=Emp_Hrs;
-
-			System.out.println("Day:" + Total_Working_Days + " = " + Emp_Hrs);
-
+			Total_Working_Hrs += Emp_Hrs;
+			System.out.println("Day:" + Total_Working_Days + " Emp Hr: " + Emp_Hrs);
 		}
-		//Get monthly employee wage
 
-		int Monthly_Emp_Wage =Total_Working_Hrs*Wage_Per_Hr;
-
+		int Monthly_Emp_Wage = Total_Working_Hrs * WAGE_PER_HR;
 		System.out.println("Total Employee Wage is : " + Monthly_Emp_Wage);
+		System.out.println("Total Employee Hours is : " + Total_Working_Hrs);
+		System.out.println("Total Employee Days worked : " +Total_Working_Days );
+	}
+	public static void main(String[] arg){
+
+		ComputeEmployeeWage();			//calling method in main class
 
 	}
 
