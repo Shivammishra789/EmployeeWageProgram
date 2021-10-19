@@ -3,6 +3,7 @@ package com.bridgelabz.employeewage;
 
 public class EmployeeWage {
 
+
 	public static void main(String[] args) {
 
 		//Constants declared
@@ -17,30 +18,37 @@ public class EmployeeWage {
 
 		int Part_Day_Hr = 4;
 
+		//Getting random number 
+
 		double Emp_Check = Math.floor(Math.random() *10 )%3;
 
-		//Conditional statement used to check present absent or parttime
+		//Switch Case Statement used
 
-		if (Emp_Check == Is_Present ) {
+		switch((int) Emp_Check){
+
+		case 1: {
 
 			int Emp_Wage = Wage_Per_Day * Full_Day_Hr;
 
 			System.out.println("Employee daily wage is " + Emp_Wage );
 
 		}
-		else if (Emp_Check == Is_Part_Time) {
+		break;
+
+		case 2: {
 
 			int Emp_Wage = Wage_Per_Day * Part_Day_Hr;
 
 			System.out.println("Employee daily wage is " + Emp_Wage );
 
 		}
+		break;
 
-		else {
-
+		default: {
 
 			System.out.println("Employee daily wage is 0 " );
 
+			}
 		}
 	}
 }
